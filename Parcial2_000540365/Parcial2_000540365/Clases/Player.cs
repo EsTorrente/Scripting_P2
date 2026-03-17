@@ -31,7 +31,7 @@ namespace Parcial2_000540365.Clases
 
         public void AddGold(int amount)
         {
-            
+
         }
     }
 }

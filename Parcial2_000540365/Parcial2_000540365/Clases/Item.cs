@@ -19,9 +19,15 @@ namespace Parcial2_000540365.Clases
             Category = category;
         }
 
-        public bool itemIsValid()
+        public bool IsValid()
         {
-            return false;
+            if (string.IsNullOrWhiteSpace(Name))
+                return false;
+
+            if (Price <= 0)
+                return false;
+
+            return true;
         }
     }
 }

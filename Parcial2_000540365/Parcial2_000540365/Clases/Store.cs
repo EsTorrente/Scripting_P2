@@ -16,11 +16,34 @@ namespace Parcial2_000540365.Clases
             Inventory = new Dictionary<Item, int>();
         }
 
-        public void AddItem(Item item, int quantity) { }
-
-        public bool BuyItems(Player player, Dictionary<Item, int> items) 
+        public bool AddItem(Item item, int quantity)
         {
-            return false; //temporal :P
+            if (item == null || !item.IsValid())
+                return false;
+
+            if (quantity < 0)
+                return false;
+
+            //el cosito de que mismo nombre y categoría no pueden tener distintos precios
+            var existing = Inventory.Keys.FirstOrDefault(i =>
+                i.Name == item.Name && i.Category == item.Category);
+
+            if (existing != null)
+            {
+                if (existing.Price != item.Price)
+                    return false;
+
+                Inventory[existing] += quantity;
+                return true;
+            }
+
+            Inventory[item] = quantity;
+            return true;
+        }
+
+        public bool BuyItems(Player player, Dictionary<Item, int> items)
+        {
+            return false; //después lo pongo
         }
     }
 }
