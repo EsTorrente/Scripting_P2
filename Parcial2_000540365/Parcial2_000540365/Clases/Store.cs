@@ -28,7 +28,7 @@ namespace Parcial2_000540365.Clases
             if (item == null || !item.IsValid())
                 return false;
 
-            if (quantity < 0)
+            if (quantity <= 0)
                 return false;
 
             //el cosito de que mismo nombre y categoría no pueden tener distintos precios
