@@ -13,7 +13,7 @@ namespace Parcial2_000540365.Clases
 
         public Store(Item item, int quantity)
         {
-            if (item == null)
+            if (item == null || !item.IsValid())
                 throw new Exception("Must have AT LEAST!!!!! one item to sell.");
 
             if (quantity <= 0)
@@ -90,9 +90,5 @@ namespace Parcial2_000540365.Clases
             return true;
         }
 
-        public bool HasItems() //pensé que ya la había puesto en el primer commit, perdón :( tengo déficit de atención
-        {
-            return Inventory.Any(i => i.Value > 0);
-        }
     }
 }
